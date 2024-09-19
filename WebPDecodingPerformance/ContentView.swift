@@ -135,7 +135,6 @@ private struct AnimatingImage: View {
     var body: some View {
         VStack{
             images[counter.value % images.count]
-            
         }
     }
 }
