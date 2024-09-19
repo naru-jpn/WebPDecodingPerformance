@@ -38,7 +38,7 @@ CGImage seems to maintain the WebP format internally.
 		...
 ```
 
-The process of converting WebP resource data to any data format described above is not slow. However, converting image formats or displaying images is extremely slow. All example code below is slow when processing continuous `index` values.
+The process of converting WebP resource data to any data format described above is _not slow_. However, converting image formats or displaying images is extremely slow. All example code below is slow when processing continuous `index` values.
 
 ```
 // 1
