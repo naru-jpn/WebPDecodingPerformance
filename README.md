@@ -26,6 +26,14 @@ let uiImage = UIImage(cgImage: cgImage) // for all `index`
 let image = SwiftUI.Image(uiImage: uiImage) // for all `index`
 ```
 
+CGImage seems to maintain the WebP format internally.
+
+```
+<CGImage 0x10e394dc0> (IP) <WEBP>
+	<<CGColorSpace 0x301d2c240> (kCGColorSpaceICCBased; kCGColorSpaceModelRGB; sRGB IEC61966-2.1)>
+		...
+```
+
 The process of converting WebP resource data to any data format described above is not slow. However, converting image formats or displaying images is extremely slow. All example code below is slow when processing continuous `index` values.
 
 ```
