@@ -8,6 +8,8 @@
 import AsyncAlgorithms
 import SwiftUI
 
+private let counter = Counter(interval: 1.0 / 30.0)
+
 struct ContentView: View {
     /// Array of UIImage converted from animated WebP.
     @State private var uiImages: [UIImage]?
@@ -29,7 +31,7 @@ struct ContentView: View {
                 VStack(spacing: 20) {
                     if let animatingImages {
                         // Preview animation
-                        AnimatingImage(images: animatingImages)
+                        AnimatingImage(images: animatingImages, counter: counter)
                     } else if let convertingProgress {
                         // Progress
                         Text(convertingProgress)
@@ -76,7 +78,7 @@ struct ContentView: View {
     ///
     /// This method is fast.
     private func convertWebPToImageArray() {
-        let path = Bundle.main.path(forResource: "sample_small", ofType: "webp")!
+        let path = Bundle.main.path(forResource: "sample", ofType: "webp")!
         let data = try! Data(contentsOf: URL(fileURLWithPath: path)) as CFData
         let source = CGImageSourceCreateWithData(data, nil)!
         let frameCount = CGImageSourceGetCount(source)
@@ -129,9 +131,12 @@ struct ContentView: View {
 
 private struct AnimatingImage: View {
     let images: [Image]
-    @ObservedObject private var counter = Counter(interval: 1.0 / 30.0)
+    @ObservedObject var counter: Counter
     var body: some View {
-        images[counter.value % images.count]
+        VStack{
+            images[counter.value % images.count]
+            
+        }
     }
 }
 
