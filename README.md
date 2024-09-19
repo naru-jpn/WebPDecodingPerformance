@@ -57,7 +57,7 @@ var body: some View {
 }
 ```
 
-I believe that the decoding process required to convert or display WebP-formatted images is computationally expensive on iOS 18.
+I believe that the decoding process required to convert or display WebP-formatted images is computationally expensive especially on iOS 18.
 
 ## Reference
 
