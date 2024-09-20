@@ -9,9 +9,9 @@ Performance for decoding animated WebP may have gotten worse since iOS 18. The p
 | <kbd><img src="https://github.com/user-attachments/assets/bc154a30-993c-4320-a7fc-1ff14df666e0" width="250"></kbd> | <kbd><img src="https://github.com/user-attachments/assets/0103cf4a-45cc-4f85-a0ce-16011b968a7d" width="250"></kbd> |
 
 ## Details
-CPU usage when displaying continuous WebP images on iOS 17 is around 50-60%. However, on iOS 18, CPU usage reaches 100%, causing the application to freeze.
+CPU usage when displaying continuous WebP images on iOS 17 is around 50-60%. However, on iOS 18, CPU usage reaches 100%, causing the application to freeze. This problem is probably caused by the decoding process of WebP images on iOS.
 
-This problem is probably caused by the decoding process of WebP images on iOS. Animated WebP images are converted to UIImage(SwiftUI.Image) as shown below.
+Animated WebP images are converted to UIImage(SwiftUI.Image) as shown below.
 
 ```
 // Data
